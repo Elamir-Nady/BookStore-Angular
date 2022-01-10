@@ -74,7 +74,18 @@ export class LoginService {
 
   loginStatusSubject(): Observable<boolean> {
     // localStorage.removeItem("token");
+    if(localStorage.getItem("token")!=null){
+      
+      this.isLoginSubject.next(true);
+      this.router.navigate(['/books']);
 
+    }
+    else{
+      this.isLoginSubject.next(false);
+      this.router.navigate(['/login']);
+
+
+    }
     return this.isLoginSubject;
 
   }
