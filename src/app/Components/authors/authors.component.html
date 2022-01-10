@@ -1,0 +1,39 @@
+<br>
+<div class="container">
+<button class="btn btn-success mb-3 ms-2"(click)="changeAdd()">{{authstatusAdd}}</button>
+<form [hidden]="!addbtn" >
+  <input type="text" class="form-control addinput" (change)="isnull(name.value)" #name  name="Add" placeholder="Add Author FullName">
+  <button class="btn btn-success mb-3 ms-2" [disabled]="nameIsNull" (click)="addAuther(name)">Add</button>
+</form>
+
+<form [hidden]="!updatebtn" >
+  <input type="text" class="form-control addinput"  (mouseenter)="isnull(update.value)" #update  name="Update">
+  <button class="btn btn-success mb-3 ms-2" [disabled]="nameIsNull" (click)="updateAuther(update)">Update</button>
+  <button class="btn btn-danger mb-3 ms-2" (click)="hideUpdate()" >Cancel</button>
+</form>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FullName</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr  *ngFor="let A of authers">
+        <td>{{A.id}}</td>
+        <td>{{A.fullName}}</td>
+        <td>
+            <button class="btn btn-warning" (click)=" toUpdate(A,update)">Update</button>
+           
+        </td>
+        <td>
+            <button class="btn btn-danger" (click)="remove(A)">Delete</button>
+        
+        </td>  
+      </tr>
+    
+    </tbody>
+  </table>
+</div>

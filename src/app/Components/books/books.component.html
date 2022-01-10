@@ -1,0 +1,38 @@
+<div class="container-fluid"  >
+  <br>
+  <div class="row">
+    <div class="sel col-lg-10 col-md-9 col-sm-12"> 
+    <select name="auther" class="form-control col-sm-12" id="auther" #items (change)="AutherId(items.value)">
+      <option value="0">All Authores</option>
+      <option *ngFor="let A of Authers" value="{{A.id}}">{{A.fullName}}</option>
+    </select>
+  </div>
+  <div  class="col-lg-2 col-md-3 col-sm-12">
+    <button class="btn btn-success col-sm-12" (click)="addBook()">Add Book</button>
+
+  </div>
+ 
+
+<div class="ms-5" >
+  <div class="card col-lg-3 col-md-5 col-sm-12"  *ngFor="let b of books">
+    <div *ngIf="books.length !=0">
+    <img src="{{imagApi}}/{{b.imageURL}}" class="card-img-top"  (click)="display(b.id)" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{b.title}}</h3>
+    
+      <button class="btn btn-primary col-3 me-4" (click)="display(b.id)" >Detiles</button>
+      <button class="btn btn-warning col-4 me-4" (click)="updateBook(b.id)">Update</button>
+      <button class="btn btn-danger  col-3" (click)=" delete(b.id)">Delete</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div *ngIf="books.length==0">
+  <img class="empty" src="assets/img/empty.jpg">
+  <br>
+  <a [routerLink]="['/addbook']" class=" btno btn btn-success " >Add Book Now</a>
+
+</div>
+

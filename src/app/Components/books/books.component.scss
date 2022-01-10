@@ -1,0 +1,37 @@
+.card{
+    display: inline-block !important;
+    // width: 22% !important;
+    margin: 3%;
+    max-height: 65vh !important;
+    border:black 1px solid;
+}
+.card-img-top{
+   height: 40vh !important;
+
+}
+.card-img-top:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+.card:hover{
+    // transform: scale(1.1);
+    box-shadow: 3px 5px 10px black;
+}
+.sel{
+    // width: 79% !important;
+    display: inline-block;
+    // margin-right: 1%;
+}
+// .btnn{
+//     width: 15% !important;
+
+// }
+.empty {
+    margin-top: 0;
+    width: 30%;
+    margin-left: 33%;
+}
+.btno{
+    width: 12%;
+    margin-left: 42.5%;
+}

@@ -1,0 +1,48 @@
+<br>
+
+
+<h1 class="center">Add Book : </h1><br>
+<div class="container">
+  <form class="col-lg-6 col-md-6 col-sm-12 formm" #frm="ngForm" (ngSubmit)="onUploade()">
+
+
+    <div class="form-group">
+      <label for="title">Title : </label>
+      <input type="text" [(ngModel)]="book.title" #title="ngModel" [class.is-invalid]="title.invalid && title.touched"
+        required name="title" id="title" class="form-control">
+      <small [hidden]="title.valid || title.untouched" id="helpId" style="color: white;">Title For New Book</small><br>
+    </div>
+
+    <div class="form-group">
+      <label for="descryption">Descryption : </label>
+
+      <textarea type="text" [(ngModel)]="book.descryption" name="descryption" required min="1" id="descryption"
+        class="form-control" placeholder="" aria-describedby="helpId" rows="5"></textarea>
+    </div>
+
+
+    <div class="mb-2  mt-2">
+      <label for="cat" class="form-label">Author:</label>
+      <div>
+        <select name="auther" class="form-control col-sm-12" id="auther" [(ngModel)]="book.autherID">
+          <option *ngFor="let a of Authores" value="{{a.id}}">{{a.fullName}}</option>
+        </select>
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="file">Image : </label>
+      <input type="file" accept=".jpg, .png, .jpeg, .gif" (change)="onFileSelected($event)" name="file" required min="1"
+        id="file" class="form-control" placeholder="" aria-describedby="helpId">
+      <small id="helpId" style="color: white;">Select Image</small><br>
+    </div>
+    <br>
+    <button type="submit" [disabled]="frm.invalid" class="col-12 btn btn-success">Add</button>
+    <button class="btn btn-primary col-12 mt-2" (click)="goback()">back</button>
+
+  </form>
+</div>
+
+<!-- <hr>
+ {{prd | json}} -->

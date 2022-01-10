@@ -1,0 +1,46 @@
+<div class="container mt-5 mb-5">
+    <div class="row d-flex align-items-center justify-content-center mt-5">
+        <div class="col-lg-6 col-md-9 col-sm-12 frm">
+            <div >
+                <h2 style="text-align: center !important;" class="mt-1 mb-2">Join over Book Store Website</h2>
+                <form class="mt-3" [formGroup]=" registerform" (ngSubmit)="onSubmit()">
+
+                    <div class="form-input"> <i class="fa fa-user"></i>
+                        <input type="text"
+                            [class.is-invalid]=" registerform.controls['firstName'].invalid &&  registerform.controls['firstName'].touched"
+                            [class.is-valid]=" registerform.controls['firstName'].valid" formControlName="firstName"
+                            class="form-control" id="fname" name="fname" placeholder="First Name" required>
+                    </div>
+                    <br>
+                    <div class="form-input"> <i class="fa fa-user"></i>
+                        <input type="text" formControlName="lastName"
+                            [class.is-invalid]=" registerform.controls['lastName'].invalid &&  registerform.controls['lastName'].touched"
+                            [class.is-valid]=" registerform.controls['lastName'].valid" class="form-control" id="lname"
+                            name="lname" placeholder="Last Name" required>
+                    </div>
+                    <br>
+                    <div class="form-input"> <i class="fa fa-envelope"></i>
+                        <input type="email" formControlName="email"
+                            [class.is-invalid]=" registerform.controls['email'].invalid &&  registerform.controls['email'].touched"
+                            [class.is-valid]=" registerform.controls['email'].valid" class="form-control" id="email"
+                            name="email" placeholder="Email address" required>
+                    </div>
+                    <br>
+                    <div class="form-input"> <i class="fa fa-lock"></i>
+                        <input type="password"
+                            [class.is-invalid]=" registerform.controls['password'].invalid &&  registerform.controls['password'].touched"
+                            [class.is-valid]=" registerform.controls['password'].valid" formControlName="password"
+                            class="form-control" id="password" name="password" placeholder="password" required>
+                    </div>
+                    <br>
+                    <!-- <input type="submit" class="btn btn-primary mt-4" value="SignUp">  -->
+                    <input type="submit" [disabled]=" registerform.invalid" class="btn btn-primary mt-3 signup col-12"
+                        value="SignUp">
+                </form>
+                <div class="text-center mt-4"> <span>Already a member?</span> <a [routerLink]="['/login']"
+                        class="text-decoration-none">Login</a> </div>
+
+            </div>
+        </div>
+    </div>
+</div>
