@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/Login/login.service';
 import { ILogin } from 'src/app/ViewModels/iLogin';
 import { ISignUp } from 'src/app/ViewModels/iSignUp';
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
   authModel:ILogin={} as ILogin;
   Message:string="";
   public isLogged:boolean=false;
-  constructor(private fb: FormBuilder,private registerService:LoginService) { }
+  constructor(private fb: FormBuilder,private registerService:LoginService,private router:Router) { }
 
   ngOnInit(): void {
     this.registerform = this.fb.group({

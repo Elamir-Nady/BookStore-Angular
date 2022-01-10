@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   // Api:"http://amirnady-001-site1.ftempurl.com/api/",
-  Api:"https://localhost:44312/api/",
-  imgApi:"https://localhost:44312/images/",
+  Api:"http://amirnady-001-site1.ftempurl.com/api/",
+  imgApi:"http://amirnady-001-site1.ftempurl.com/images/",
 
 
 };

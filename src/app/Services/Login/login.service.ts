@@ -24,7 +24,19 @@ export class LoginService {
   userregister(user: ISignUp): Observable<ResultViewModel> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    }
+    }   
+      this.http.post<ResultViewModel>(`${environment.Api}User/SignUp`, JSON.stringify(user), httpOptions).subscribe(res=>{
+        if(res.iSuccessed==true){
+         
+          localStorage.setItem("token",res.data);
+          this.isLoginSubject.next(true);
+          this.router.navigate(['/books']);
+          
+   
+      }});
+
+    
+
     return this.http.post<ResultViewModel>(`${environment.Api}User/SignUp`, JSON.stringify(user), httpOptions)
 
   }
